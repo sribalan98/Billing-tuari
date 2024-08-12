@@ -7,11 +7,11 @@ function Settings({ language, onLanguageChange }) {
   };
 
   return (
-    <div className="h-screen flex items-start  px-4 py-4">
-      <div className=" flex items-center border bg-gray-600 px-4 py-2 rounded-lg">
-        <label className="text-2xl font-semibold mr-4">Language</label>
+    <div className="h-screen flex flex-col items-start p-6 space-y-4">
+      <div className="w-full flex justify-between items-center bg-gray-700 p-4 rounded-lg">
+        <label className="text-2xl text-white font-semibold">Language</label>
         <select
-          className="border-none bg-transparent text-xl"
+          className="text-2xl bg-gray-800 text-white p-2 rounded-md border-none"
           value={language}
           onChange={handleLanguageChange}
         >

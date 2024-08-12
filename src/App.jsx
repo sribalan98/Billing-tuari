@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div className="flex">
         <SideNavBar language={language} />
-        <div className="flex-grow p-2 bg-gray-100">
+        <div className="flex-grow px-2 bg-gray-100">
           <Routes>
             <Route path="/" element={<Billing language={language} />} />
             <Route path="/accounts" element={<About />} />

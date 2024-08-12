@@ -9,3 +9,11 @@
 .group-hover\:block {
   display: none;
 }
+
+/* Disable text selection for the entire app */
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
