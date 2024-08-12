@@ -71,7 +71,9 @@ function SideNavBar({ language }) {
             <li key={item.name} className="p-4 hover:bg-gray-700">
               <div
                 onClick={
-                  item.name === "Inventory" || "சரக்கு" ? toggleInventory : null
+                  item.name === (language === "en" ? "Inventory" : "சரக்கு")
+                    ? toggleInventory
+                    : null
                 }
               >
                 <Link to={item.href} className="flex items-center">
