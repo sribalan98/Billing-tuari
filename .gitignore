@@ -1,9 +1,7 @@
 # Ignore everything
-*
-
+src-tauri
+node_modules
 # But not these files...
-!Server/
-!src/
 !index.html
 !nodemon.json
 !package.json
