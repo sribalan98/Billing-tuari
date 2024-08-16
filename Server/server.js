@@ -1,7 +1,12 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import { getInventory, addInventoryItem } from "./inventory.js";
+import {
+  getInventory,
+  addInventoryItem,
+  deleteInventoryItem,
+  updateStockItem,
+} from "./inventory.js";
 
 const app = express();
 const port = 3001;
@@ -39,6 +44,35 @@ app.post("/api/inventory", async (req, res) => {
     res.status(201).json(item);
   } catch (error) {
     console.error("Error adding inventory item:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Endpoint to delete inventory item
+app.delete("/api/inventory/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedItem = await deleteInventoryItem(id);
+    if (deletedItem) {
+      res.status(200).json({ message: "Item deleted successfully" });
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (error) {
+    console.error("Error deleting inventory item:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Endpoint to update stock for an item
+app.put("/api/inventory/:id/stock", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { stock } = req.body;
+    const updatedItem = await updateStockItem(id, stock);
+    res.json(updatedItem);
+  } catch (error) {
+    console.error("Error updating stock:", error);
     res.status(500).send("Internal Server Error");
   }
 });

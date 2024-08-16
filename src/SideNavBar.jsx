@@ -19,18 +19,18 @@ function SideNavBar({ language }) {
     },
     {
       name: language === "en" ? "Inventory" : "சரக்கு",
-      href: "#",
+      href: "/inventory",
       icon: "fa-boxes-stacked",
-      subItems: [
-        {
-          name: language === "en" ? "Inventory Items" : "சரக்கு பொருட்கள்",
-          href: "/inventory-items",
-        },
-        {
-          name: language === "en" ? "Stock Items" : "பங்கு பொருட்கள்",
-          href: "/stock-items",
-        },
-      ],
+      // subItems: [
+      //   {
+      //     name: language === "en" ? "Inventory Items" : "சரக்கு பொருட்கள்",
+      //     href: "/inventory-items",
+      //   },
+      //   {
+      //     name: language === "en" ? "Stock Items" : "பங்கு பொருட்கள்",
+      //     href: "/stock-items",
+      //   },
+      // ],
     },
     {
       name: language === "en" ? "Settings" : "அமைப்புகள்",

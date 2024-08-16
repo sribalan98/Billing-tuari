@@ -11,7 +11,7 @@ node_modules
 !README.md
 !tailwind.config.js
 !vite.config.js
-
+!back_main.rs
 
 # Ensure .gitignore is not ignored
 !.gitignore

@@ -17,3 +17,12 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+/* Allow text selection in input fields */
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}

@@ -6,8 +6,8 @@ import Billing from "./pages/Billing";
 import About from "./pages/About";
 import Inventory from "./pages/Inventory";
 import Settings from "./pages/Settings";
-import InventoryItems from "./InventoryPage/InventoryItems";
-
+// import InventoryItems from "./InventoryPage/InventoryItems";
+import StockItems from "./InventoryPage/Stockitems";
 function App() {
   const [language, setLanguage] = useState("en");
 
@@ -24,7 +24,8 @@ function App() {
             <Route path="/" element={<Billing language={language} />} />
             <Route path="/accounts" element={<About />} />
             <Route path="/inventory" element={<Inventory />} />
-            <Route path="/inventory-items" element={<InventoryItems />} />
+            {/* <Route path="/inventory-items" element={<InventoryItems />} /> */}
+            <Route path="/stock-items" element={<StockItems />} />
             <Route
               path="/settings"
               element={

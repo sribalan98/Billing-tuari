@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
-function Inventory() {
+function InventoryItems() {
   const [inventory, setInventory] = useState([]);
   const [newItem, setNewItem] = useState({ name: "", imgUrl: "" });
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -68,16 +67,9 @@ function Inventory() {
   return (
     <div className="p-6">
       <div className="flex justify-end mb-4">
-        <Link
-          to="/stock-items"
-          className="bg-blue-500 text-white px-4 py-2 rounded mx-3"
-        >
-          <button>StockItems</button>
-        </Link>
-
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-blue-500 text-white px-4 py-2 rounded mx-3"
+          className="bg-blue-500 text-white px-4 py-2 rounded"
         >
           Add Item
         </button>
@@ -89,7 +81,7 @@ function Inventory() {
         {inventory.map((item) => (
           <div
             key={item._id}
-            className="border border-gray-300 rounded-lg p-2 flex flex-col items-center drop-shadow-lg justify-between h-auto w-full shadow-sm group transition-all hover:shadow-lg hover:bg-gray-100"
+            className="border border-gray-300 rounded-lg p-2 flex flex-col items-center  drop-shadow-lg justify-between h-auto w-full shadow-sm group transition-all  hover:shadow-lg hover:scale-105 hover:bg-gray-100"
           >
             <div className="flex flex-col items-center">
               <img
@@ -131,14 +123,36 @@ function Inventory() {
             />
             <div className="flex flex-col w-full">
               <button
+                onMouseEnter={(e) => {
+                  e.target.parentNode.parentNode.style.borderColor = "#ef4444"; // Dark Red for border
+                  e.target.parentNode.parentNode.style.backgroundColor =
+                    "#fca5a5"; // Light Red for background
+                }}
+                onMouseLeave={(e) => {
+                  e.target.parentNode.parentNode.style.borderColor =
+                    "rgba(209, 213, 219, 1)"; // Reset to gray-300
+                  e.target.parentNode.parentNode.style.backgroundColor =
+                    "transparent";
+                }}
                 onClick={() => handleDeleteItem(item._id)}
-                className="bg-red-500 text-white text-xs px-2 py-1 mt-1 rounded w-full transition-colors hover:bg-red-600"
+                className="bg-red-500 text-white text-xs px-2 py-1 mt-1 rounded w-full transition-colors"
               >
                 Delete
               </button>
               <button
+                onMouseEnter={(e) => {
+                  e.target.parentNode.parentNode.style.borderColor = "#3b82f6"; // Dark Blue for border
+                  e.target.parentNode.parentNode.style.backgroundColor =
+                    "#93c5fd"; // Light Blue for background
+                }}
+                onMouseLeave={(e) => {
+                  e.target.parentNode.parentNode.style.borderColor =
+                    "rgba(209, 213, 219, 1)"; // Reset to gray-300
+                  e.target.parentNode.parentNode.style.backgroundColor =
+                    "transparent";
+                }}
                 onClick={() => handleStockUpdate(item._id, item.stock)}
-                className="bg-blue-500 text-white text-xs px-2 py-1 mt-1 rounded w-full transition-colors hover:bg-blue-600"
+                className="bg-blue-500 text-white text-xs px-2 py-1 mt-1 rounded w-full transition-colors"
               >
                 Update Stock
               </button>
@@ -188,4 +202,4 @@ function Inventory() {
   );
 }
 
-export default Inventory;
+export default InventoryItems;

@@ -1,4 +1,3 @@
-// Server/Model/AddInventoryModel.js
 import mongoose from "mongoose";
 
 const inventorySchema = new mongoose.Schema({
@@ -18,7 +17,10 @@ const inventorySchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-
+  stock: {
+    type: Number,
+    default: 0, // Set default stock to 0
+  },
   createdAt: {
     type: Date,
     default: Date.now,
